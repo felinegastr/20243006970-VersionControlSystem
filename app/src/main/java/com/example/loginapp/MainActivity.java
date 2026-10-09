@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private EditText usernameInput, passwordInput;
-    private Button loginButton;
+    private Button loginButton, cancelButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,12 @@ public class MainActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.usernameInput);
         passwordInput = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
+        cancelButton = findViewById(R.id.cancelButton);
         loginButton.setOnClickListener(v ->
                 Toast.makeText(MainActivity.this, "Login submitted", Toast.LENGTH_SHORT).show());
+        cancelButton.setOnClickListener(v -> {
+            usernameInput.getText().clear();
+            passwordInput.getText().clear();
+        });
     }
 }
